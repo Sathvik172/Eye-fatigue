@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Fatigue Recognition</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ url_for('static', filename='lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Fatigue Recognition</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{{ url_for('home') }}" class="nav-item nav-link active">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-item nav-link">About</a>
+            
+                <form method="post" action="{{url_for('upload_image1')}}"
+                enctype="multipart/form-data" class="main-form">    
+                <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Open Web Cam</button>
+             </form>
+
+
+             <a href="{{ url_for('upload') }}" class="nav-item nav-link">Image</a>
+            
+                <a href="{{ url_for('login') }}"  class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Log Out<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+          
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">About Us</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x  text-primary mb-4"></i>
+                            <h5 class="mb-3">Fatigue Recognition</h5>
+                            <p> we dive into the intricate fatigue recognition process from video data using AI, driven by an exciting blend of Python libraries and transformative AI models. Our guide through this journey is the ViT-Face-Expression model from Hugging Face, a transformer-based pre-trained model explicitly designed for Fatigue detection tasks. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x  text-primary mb-4"></i>
+                            <h5 class="mb-3">What are we trying to do?</h5>
+                            <p> We’ll utilize a broad array of Python libraries to navigate this fascinating landscape. We’ll use numpy and pandasfor data manipulation, matplotlib and seaborn for data visualization, and moviepy for video processing. To handle images, we'll leverage the power of the Python Imaging Library (PIL). We'll employ facenet_pytorch's MTCNN for accurate face detection and transformers for leveraging the cutting-edge ViT-Face-Expression model. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x  text-primary mb-4"></i>
+                            <h5 class="mb-3">context</h5>
+                            <p>Join us as we walk through detecting fatigues in real-time, frame by frame, in a video clip. We’ll tackle various challenges, including face detection, handling frames with no detected faces, and visualizing the changing probabilities of each fatigue throughout the video. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x  text-primary mb-4"></i>
+                            <h5 class="mb-3">More about </h5>
+                            <h4>Data Collection</h4>
+                            <p>Gather a dataset of  images labeled with their corresponding categories (e.g.,Normal and Tired).</p>
+                        
+                            <h4>Data Preprocessing</h4>
+                            <p>Resize the images to a consistent size, normalize pixel values, and augment the dataset if necessary to increase the diversity of training samples.</p>
+                        
+                            <h4>Model Architecture Design</h4>
+                            <p>Design a CNN architecture suitable for image classification tasks. This may involve stacking convolutional layers, pooling layers, and fully connected layers, possibly with dropout regularization to prevent overfitting.</p>
+                        
+                            <h4>Model Training</h4>
+                            <p>Split the dataset into training, validation, and test sets. Train the CNN model on the training set, using the validation set to tune hyperparameters and monitor model performance.</p>
+                        
+                            <h4>Model Evaluation</h4>
+                            <p>Evaluate the trained model's performance on the test set using metrics such as accurac
+                                
+                                
+                                
+                                
+                                
+                                y, precision, recall, and F1-score.</p>
+                        
+                            <h4>Model Deployment</h4>
+                            <p>Deploy the trained model as part of an application or service where it can classify fatigue in real-time or in batch processing mode.</p>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="../static/img/istockphoto-151811629-612x612.jpg" alt="" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                    <h1 class="mb-4">Welcome To Video fatigue Recognition</h1>
+                    <p class="mb-4">
+                        While this model has proven effective for the task, it’s worth noting that improvements can be made. For instance, fatigue detection is more complex than merely analyzing facial expressions, as it often incorporates context, dialogue, and body language. Future work could focus on integrating these additional factors for a more holistic understanding.                   <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Chart</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Chart</p>
+                        </div>
+                        
+                        
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    
+
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='lib/wow/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    
+    <!-- Template Javascript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+</body>
+
+</html>
